@@ -5,13 +5,16 @@
 @endphp
 
 {{-- TOP --}}
+@if ($top)
 <section id="top" data-parallax="scroll" data-image-src="{{ $top['image']['url'] }}">
     <div class="container">
         <h1>{!! formatTitle($top['text']) !!}</h1>
     </div>
 </section>
+@endif
 
  {{-- INTRO --}}
+ @if ($intro)
 <section id="intro">
     <div class="container">
         <div class="star">
@@ -28,12 +31,13 @@
         <img src="{!! $intro['image_mobile']['url'] !!}" class="mobile" />
     </div>
 </section>
+@endif
 
 {{-- Engage --}}
 @if ($engage)
 <section id="engage">
     <div class="container">
-        <h2>{{ $engage['title'] }}</h2>
+        <h2>{{ formatTitle($engage['title']) }}</h2>
         <div class="row">
             <div class="col-lg-8 action">
                 @php $article = $featured_action @endphp
@@ -69,6 +73,7 @@
 @endif
 
  {{-- COURAGE SCORE --}}
+ @if ($banner)
  <section id="courageScore" class="banner">
     <div class="container">
         <div class="row">
@@ -83,8 +88,10 @@
         </div>
     </div>
 </section>
+@endif
 
  {{-- VOTER GUIDE --}}
+ @if ($voter_guide)
  <section id="voterGuide" class="banner">
     <div class="container">
         <div class="row">
@@ -99,8 +106,10 @@
         </div>
     </div>
 </section>
+@endif
 
  {{-- INSTITUTE --}}
+ @if ($institute)
  <section id="institute" class="banner">
     <div class="container">
         <div class="row">
@@ -109,8 +118,9 @@
             </div>
             <div class="col-md-7 offset-md-1 text">
                 <h2>{!! formatTitle($institute['title']) !!}</h2>
-                <a class="button arrow" target="_blank" href="{{ $voter_guide['link'] }}">{{ $institute['button_text'] }}</a>
+                <a class="button arrow" target="_blank" href="{{ $institute['link'] }}">{{ $institute['button_text'] }}</a>
             </div>
         </div>
     </div>
 </section>
+@endif
